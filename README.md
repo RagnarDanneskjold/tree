@@ -22,7 +22,6 @@ Global Dependancies
   Net::SMTP
   MIME::Lite
 * node.js
-  * captcha/qr/node-bitcoin
 * npm install bitcoin
 * npm install qrpng
 
