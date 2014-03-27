@@ -1,4 +1,4 @@
-tree v0.1 beta
+tree v0.1
 ====
 
 Tree is the software that powers the Bonsai Wallet automated Bitcoin e-mail payment system. Please use, change and contribute to this project as you see fit.
