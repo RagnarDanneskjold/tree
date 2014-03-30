@@ -15,21 +15,28 @@ Global Dependancies
 * python 2.7
 * perl 5.10 (ActivePerl windows with PPM is easiest)
 * perl dependancies
-  Mail::IMAPClient
-  MIME::Parser
-  IO::Socket::SSL
-  Digest::SHA3
-  Net::SMTP
-  MIME::Lite
+    * Mail::IMAPClient
+    * MIME::Parser
+    * IO::Socket::SSL
+    * Digest::SHA3
+    * Net::SMTP
+    * MIME::Lite
 * node.js
 * npm install bitcoin
 * npm install qrpng
+* ImageMagick: http://www.imagemagick.org/script/binary-releases.php
+* ZBAR: http://zbar.sourceforge.net/
 
 Linux Dependancies
 * Install Perl dependencies via perl -MCPAN -e shell
 
+Mac Dependancies
+* Install ActivePerl and setup the necessary paths then install through "ppm" command
+* Add these to your ~/.bash_profile and check the installed perl version 
+    * export PATH=/usr/local/ActivePerl-5.16/bin:$PATH
+    * export PATH=/usr/local/ActivePerl-5.16/site/bin:$PATH
+  
+
 Windows Dependancies
 * Install Perl dependencies via ActivePerl Package Manager PPM
 * Microsoft C++ 2010 Express (free) required for windows
-* imaging filtering modules
-* qr stuff
