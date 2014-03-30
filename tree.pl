@@ -113,7 +113,7 @@ if ( $client->IsAuthenticated() )
 					close( FILE );
 					`node qr.js $address`;
 					`mogrify -sample 300 qr.png`;
-					balance( $email, $check_balance . " $COIN_SMYB", $address );
+					balance( $email, $check_balance . " $COIN_SYMB", $address );
 				}	
 			}
 			elsif ( $subject =~ m/send/i )
@@ -396,7 +396,7 @@ sub email_valid
 }
 sub email_extract
 {
-	my $stream = shift;
+	my $in = shift;
 	if ( $in =~ m/(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/ )
 	{
 		my $out = join( '@', $2,$5);
@@ -407,8 +407,8 @@ sub email_extract
 sub address_extract
 {
 	my $in = shift;
-	# TODO support all coin prefixes (below is for LTC only)
-	if ( $in  =~ m/([L][1-9A-HJ-NP-Za-km-z]{26,33})/ )
+	# TODO support all coin prefixes (below is for Bitcoin only)
+	if ( $in  =~ m/([1][1-9A-HJ-NP-Za-km-z]{26,33})/ )
 	{
 		return $1;
 	}
@@ -431,8 +431,8 @@ sub qr_decode
 	# pre-process images
 	`mogrify -contrast -contrast -contrast -contrast -contrast -contrast -contrast -colors 2 $PATH\\IMGQ\\*.*`;
 	my $address_match = `"C:\\Program Files (x86)\\ZBar\\bin\\zbarimg" $PATH\\IMGQ\\*.*`;
-	# TODO support all coin prefixes (below is for LTC only)
-	if ( $address_match =~ m/([L][1-9A-HJ-NP-Za-km-z]{26,33})/ )
+	# TODO support all coin prefixes (below is for Bitcoin only)
+	if ( $address_match =~ m/([1][1-9A-HJ-NP-Za-km-z]{26,33})/ )
 	{
 		$out = $1;
 	}
@@ -440,8 +440,8 @@ sub qr_decode
 	{
 		`mogrify -resize 300  $PATH\\IMGQ\\*.*`;
 		$address_match = `"C:\\Program Files (x86)\\ZBar\\bin\\zbarimg" $PATH\\IMGQ\\*.*`;
-		# TODO support all coin prefixes (below is for LTC only)
-		if ( $address_match =~ m/([L][1-9A-HJ-NP-Za-km-z]{26,33})/ )
+		# TODO support all coin prefixes (below is for Bitcoin only)
+		if ( $address_match =~ m/([1][1-9A-HJ-NP-Za-km-z]{26,33})/ )
 		{
 			$out = $1;
 		}
